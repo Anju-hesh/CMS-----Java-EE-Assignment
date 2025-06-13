@@ -13,6 +13,11 @@
 </head>
 <body>
 <div class="peer">
+    <form action="<%= request.getContextPath() %>/view/employee-dashboard.jsp" style="position: absolute; right: 10px; top: 10px;">
+        <button type="submit" style="background-color: #f44336; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">
+            DashBoard
+        </button>
+    </form>
     <h1>My Complaints</h1>
 
     <%
@@ -92,7 +97,7 @@
                 <a href="<%= request.getContextPath() %>/employee/edit-complaint?id=<%= complaint.getComplaintId() %>" class="btn">Edit</a>
                 <form action="<%= request.getContextPath() %>/complaint/delete" method="post" onsubmit="return confirm('Are you sure you want to delete this complaint?');">
                     <input type="hidden" name="id" value="<%= complaint.getComplaintId() %>">
-                    <button type="submit" class="delete-link">
+                    <button type="submit" class="btn">
                         🗑 Delete
                     </button>
                 </form>

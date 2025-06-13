@@ -32,6 +32,11 @@
         </select>
 
         <input type="submit" value="Register">
+        <a href="<%= request.getContextPath() %>/index.jsp"
+           style="position: absolute; right: 10px; top: 10px; background-color: #f44336; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; cursor: pointer;">
+            Back To Login ...
+        </a>
+
     </form>
 </div>
 </body>

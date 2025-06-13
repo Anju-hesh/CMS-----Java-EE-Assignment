@@ -8,6 +8,11 @@
 </head>
 <body>
 <div class="container">
+    <form action="<%= request.getContextPath() %>/view/employee-dashboard.jsp" style="position: absolute; right: 10px; top: 10px;">
+        <button type="submit" style="background-color: #f44336; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">
+            DashBoard
+        </button>
+    </form>
     <h1>Submit Complaint</h1>
     <form action="${pageContext.request.contextPath}/employee/submit-complaint" method="post">
         <label for="title">Title:</label>
