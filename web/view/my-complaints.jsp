@@ -57,14 +57,14 @@
             }
 
             String userId = currentUser.getUserId();
-            System.out.println("[JSP DEBUG] Current User ID: " + userId);
+            System.out.println(" Current User ID: " + userId);
 
             try {
                 ComplaintDAO complaintDAO = new ComplaintDAO();
                 complaints = complaintDAO.getComplaintsByUser(userId);
-                System.out.println("[JSP DEBUG] Complaints loaded: " + complaints.size());
+                System.out.println("Complaints loaded: " + complaints.size());
             } catch (Exception e) {
-                System.err.println("[JSP ERROR] Error loading complaints: " + e.getMessage());
+                System.err.println(" Error loading complaints: " + e.getMessage());
                 e.printStackTrace();
             }
 

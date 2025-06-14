@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 30px 40px;
+    width: 66.66vw;
+    max-width: 900px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+    position: relative;
+    box-sizing: border-box;
+}
+
+.container h1 {
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #f0f0f0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+label {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #e0e0ff;
+}
+
+input[type="text"],
+textarea,
+select {
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: none;
+    background: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    color: #333;
+    resize: vertical;
+    transition: box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    box-shadow: 0 0 12px 3px #9b59b6;
+    background: #fff;
+}
+
+.error {
+    color: #ff6961;
+    font-size: 0.9rem;
+    margin-top: 4px;
+    min-height: 18px;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+    padding: 12px;
+    font-size: 1.15rem;
+    border: none;
+    border-radius: 14px;
+    background: #764ba2;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background: #5e3b86;
+}
+
+button {
+    background-color: rgba(244, 67, 54, 0.3);
+    color: white;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-weight: 600;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(244, 67, 54, 0.2);
+}
+
+button:hover {
+    background-color: rgba(211, 47, 47, 0.5);
+    box-shadow: 0 12px 40px 0 rgba(211, 47, 47, 0.4);
+}
+

@@ -8,25 +8,30 @@ import lk.ijse.gdse72.model.podos.UserDTO;
 import lk.ijse.gdse72.util.DatabaseConfig;
 
 public class UserDAO {
+
     public UserDTO authenticate(String username, String password) {
-        String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+        String sql = "SELECT * FROM users WHERE LOWER(username) = LOWER(?)";
 
         try (Connection conn = DatabaseConfig.getDataSource().getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, username);
-            stmt.setString(2, password);
-
             ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                return extractUser(rs);
-            }
 
+            if (rs.next()) {
+                String dbUsername = rs.getString("username");
+                String dbPass = rs.getString("password");
+
+                if (dbPass.equals(password)) {
+                    return extractUser(rs);
+                }
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
+
 
     public boolean createUser(UserDTO user) {
         String sql = "INSERT INTO users (user_id, username, password, full_name, email, number, role, created_at) " +
@@ -89,6 +94,7 @@ public class UserDAO {
 
     private UserDTO extractUser(ResultSet rs) throws SQLException {
         UserDTO user = new UserDTO();
+
         user.setUserId(rs.getString("user_id"));
         user.setUsername(rs.getString("username"));
         user.setPassword(null);

@@ -16,7 +16,7 @@ public class ValidationUtil {
     private static final Pattern PASSWORD_PATTERN =
             Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$");
 
-    // Phone number: Digits only, 7-15 chars
+    // Phone number: Digits only, 10 chars stating with 0
     private static final Pattern PHONE_PATTERN =
             Pattern.compile("^0\\d{9}$");
 

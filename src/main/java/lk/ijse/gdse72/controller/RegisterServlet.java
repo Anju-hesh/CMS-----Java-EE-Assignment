@@ -38,7 +38,8 @@ public class RegisterServlet extends HttpServlet {
             hasError = true;
         }
         if (!ValidationUtil.isValidPassword(password)) {
-            req.setAttribute("passwordError", "Password must meet criteria.");
+            req.setAttribute("passwordError", "Password must meet criteria." +
+                    " Minimum 6 chars, at least one letter and one number");
             hasError = true;
         }
         if (!ValidationUtil.isValidString(fullName)) {
@@ -46,11 +47,12 @@ public class RegisterServlet extends HttpServlet {
             hasError = true;
         }
         if (!ValidationUtil.isValidPhone(phone)) {
-            req.setAttribute("phoneError", "Invalid phone number.");
+            req.setAttribute("phoneError", "Invalid phone number." +
+                    " Digits only, 10 chars stating with 0");
             hasError = true;
         }
         if (!ValidationUtil.isValidEmail(email)) {
-            req.setAttribute("emailError", "Invalid email address.");
+            req.setAttribute("emailError", "Invalid email address.basic but effective");
             hasError = true;
         }
         if (!(role != null && (role.equalsIgnoreCase("EMPLOYEE") || role.equalsIgnoreCase("ADMIN")))) {

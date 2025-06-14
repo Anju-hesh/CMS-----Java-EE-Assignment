@@ -39,7 +39,10 @@ public class LoginServlet extends HttpServlet {
                 resp.sendRedirect(req.getContextPath() + "/index.jsp?error=role");
             }
         } else {
-            resp.sendRedirect(req.getContextPath() + "/index.jsp?error=invalid");
+            req.setAttribute("error", "Invalid Username or Password.");
+            req.getRequestDispatcher("/index.jsp").forward(req, resp);
+
+//            resp.sendRedirect(req.getContextPath() + "/index.jsp?error=invalid");
         }
     }
 }
