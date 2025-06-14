@@ -4,7 +4,7 @@
 <head>
     <title>Register - Complaint Management System</title>
 <%--    <link rel="stylesheet" href="../css/style.css">--%>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sign_up.css">
 </head>
 <body>
 <div class="container">

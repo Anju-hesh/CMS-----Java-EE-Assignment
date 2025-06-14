@@ -25,17 +25,17 @@ public class ComplaintDTO {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public boolean canBeEditedByEmployee() {
-        return "PENDING".equals(status);
-    }
-
-    public String getStatusBadgeClass() {
-        switch (status) {
-            case "PENDING": return "badge-warning";
-            case "IN_PROGRESS": return "badge-info";
-            case "RESOLVED": return "badge-success";
-            case "REJECTED": return "badge-danger";
-            default: return "badge-secondary";
-        }
-    }
+//    public boolean canBeEditedByEmployee() {
+//        return "PENDING".equals(status);
+//    }
+//
+//    public String getStatusBadgeClass() {
+//        switch (status) {
+//            case "PENDING": return "badge-warning";
+//            case "IN_PROGRESS": return "badge-info";
+//            case "RESOLVED": return "badge-success";
+//            case "REJECTED": return "badge-danger";
+//            default: return "badge-secondary";
+//        }
+//    }
 }

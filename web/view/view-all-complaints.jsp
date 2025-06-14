@@ -93,6 +93,7 @@
         </div>
     </div>
 
+    <div class="table-wrapper">
     <table>
         <thead>
         <tr>
@@ -172,6 +173,7 @@
         %>
         </tbody>
     </table>
+    </div>
 
     <div style="margin-top: 20px; text-align: center;">
         <a href="${pageContext.request.contextPath}/view/admin-dashboard.jsp" style="padding: 8px 16px; background-color: #4a00e0; color: #fff; text-decoration: none; border-radius: 4px;">

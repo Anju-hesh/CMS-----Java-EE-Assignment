@@ -4,21 +4,8 @@
 <html>
 <head>
     <title>Submit Complaint</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <style>
-        .error {
-            color: #ff4d4d;
-            font-size: 0.9rem;
-            margin-top: -1rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-        input.invalid, textarea.invalid, select.invalid {
-            border: 2px solid #ff4d4d;
-            background: #ffe5e5;
-            transition: 0.3s ease;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/complainForm.css">
+
 </head>
 <body>
 <div class="container">

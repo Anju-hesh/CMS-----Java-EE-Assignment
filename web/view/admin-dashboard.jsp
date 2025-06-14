@@ -41,6 +41,7 @@
             <h2><span>Guest</span></h2>
             <% } %>
         </div>
+        <div>
         <ul class="nav-menu">
             <li class="nav-item">
                 <a href="#dashboard" class="nav-link">
@@ -73,6 +74,7 @@
                 </a>
             </li>
         </ul>
+        </div>
 
 <%--        <button class="logout-btn" href="${pageContext.request.contextPath}/logout">--%>
 <%--            <span class="nav-icon">🚪</span>--%>

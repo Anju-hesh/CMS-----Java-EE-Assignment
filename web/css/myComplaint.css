@@ -2,39 +2,40 @@ body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #e0f7e9, #fffccf);
+    background: linear-gradient(135deg, #a3bffa, #758bfd, #c59eff, #f0e7ff);
     background-attachment: fixed;
     min-height: 100vh;
     padding: 2rem 0;
 }
 
+
 .container {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 16px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px 0 rgba(92, 91, 150, 0.2);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    color: #1d1d1d;
+    color: #2c2c54;
 }
 
 h1, h2, h3 {
-    color: #2e7d32;
+    color: #5a4d9d; /* deep purple */
     text-align: center;
     margin-bottom: 1.5rem;
 }
 
 .success-msg {
-    background: rgba(76, 175, 80, 0.2);
-    border: 1px solid rgba(76, 175, 80, 0.5);
+    background: rgba(79, 129, 255, 0.15);
+    border: 1px solid rgba(79, 129, 255, 0.5);
     border-radius: 8px;
     padding: 1rem;
     margin-bottom: 1rem;
     text-align: center;
-    color: #2e7d32;
+    color: #2a40c7;
     font-weight: bold;
 }
 
@@ -43,23 +44,25 @@ h1, h2, h3 {
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 8px;
-    background: linear-gradient(to right, #76ff03, #fdd835);
-    color: #1d1d1d;
+    background: linear-gradient(45deg, #4e54c8, #8f94fb);
+    color: white;
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;
     transition: 0.3s ease-in-out;
     margin: 0.25rem;
+    box-shadow: 0 4px 10px rgba(78, 84, 200, 0.4);
 }
 
 .btn:hover {
-    background: linear-gradient(to right, #66bb6a, #ffee58);
+    background: linear-gradient(45deg, #3b3fc1, #6c6efb);
+    box-shadow: 0 6px 14px rgba(59, 63, 193, 0.6);
 }
 
 .delete-link {
     background: none;
     border: none;
-    color: blue;
+    color: #5a4d9d;
     text-decoration: underline;
     cursor: pointer;
     padding: 0;
@@ -68,7 +71,7 @@ h1, h2, h3 {
 }
 
 .delete-link:hover {
-    color: red;
+    color: #3b3fc1;
     text-decoration: none;
 }
 
@@ -76,33 +79,36 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 2rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 32px rgba(92, 91, 150, 0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 }
 
 th, td {
     padding: 1rem;
     text-align: left;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: #2c2c54;
 }
 
 th {
-    background: rgba(46, 125, 50, 0.2);
-    color: #2e7d32;
+    background: rgba(90, 77, 157, 0.15);
+    color: #4e3c99;
     font-weight: bold;
     text-transform: uppercase;
     font-size: 0.9rem;
 }
 
 tr:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(142, 139, 255, 0.1);
 }
 
 .priority-high {
-    background: rgba(244, 67, 54, 0.2);
-    color: #c62828;
+    background: rgba(133, 96, 254, 0.2);
+    color: #5a4d9d;
     padding: 0.25rem 0.75rem;
     border-radius: 16px;
     font-size: 0.85rem;
@@ -110,8 +116,8 @@ tr:hover {
 }
 
 .priority-medium {
-    background: rgba(255, 193, 7, 0.2);
-    color: #f57c00;
+    background: rgba(121, 134, 203, 0.2);
+    color: #3f51b5;
     padding: 0.25rem 0.75rem;
     border-radius: 16px;
     font-size: 0.85rem;
@@ -119,8 +125,8 @@ tr:hover {
 }
 
 .priority-low {
-    background: rgba(76, 175, 80, 0.2);
-    color: #2e7d32;
+    background: rgba(173, 203, 247, 0.3);
+    color: #283593;
     padding: 0.25rem 0.75rem;
     border-radius: 16px;
     font-size: 0.85rem;
@@ -128,8 +134,8 @@ tr:hover {
 }
 
 .status-pending {
-    background: rgba(255, 193, 7, 0.2);
-    color: #f57c00;
+    background: rgba(255, 193, 7, 0.15);
+    color: #8d6e63; /* warm brown */
     padding: 0.25rem 0.75rem;
     border-radius: 16px;
     font-size: 0.85rem;
@@ -137,7 +143,7 @@ tr:hover {
 }
 
 .status-resolved {
-    background: rgba(76, 175, 80, 0.2);
+    background: rgba(102, 187, 106, 0.15);
     color: #2e7d32;
     padding: 0.25rem 0.75rem;
     border-radius: 16px;
@@ -146,7 +152,7 @@ tr:hover {
 }
 
 .status-rejected {
-    background: rgba(244, 67, 54, 0.2);
+    background: rgba(244, 67, 54, 0.15);
     color: #c62828;
     padding: 0.25rem 0.75rem;
     border-radius: 16px;
@@ -157,18 +163,18 @@ tr:hover {
 .no-complaints {
     text-align: center;
     padding: 3rem;
-    color: #666;
+    color: #4a4a7a;
 }
 
 .no-complaints h3 {
-    color: #2e7d32;
+    color: #5a4d9d;
     margin-bottom: 1rem;
 }
 
 .stats {
     margin-top: 2rem;
     text-align: center;
-    color: #666;
+    color: #5a4d9d;
     font-weight: 500;
 }
 

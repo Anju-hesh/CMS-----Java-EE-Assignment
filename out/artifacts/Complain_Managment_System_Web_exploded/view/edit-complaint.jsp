@@ -5,7 +5,7 @@
 <html>
 <head>
     <title>Edit Complaint</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/complainForm.css">
 </head>
 <body>
 <div class="container">
