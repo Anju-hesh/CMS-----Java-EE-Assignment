@@ -97,7 +97,6 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        // Get parameters
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         String fullName = req.getParameter("fullName");
@@ -105,19 +104,46 @@ public class RegisterServlet extends HttpServlet {
         String email = req.getParameter("email");
         String role = req.getParameter("role");
 
-        if (!ValidationUtil.isValidUsername(username) ||
-                !ValidationUtil.isValidPassword(password) ||
-                !ValidationUtil.isValidString(fullName) ||
-                !ValidationUtil.isValidPhone(phone) ||
-                !ValidationUtil.isValidEmail(email) ||
-                !(role.equalsIgnoreCase("EMPLOYEE") || role.equalsIgnoreCase("ADMIN"))) {
+        boolean hasError = false;
 
-            System.out.println("validation Failed ...!");
+        if (!ValidationUtil.isValidUsername(username)) {
+            req.setAttribute("usernameError", "Invalid username.");
+            hasError = true;
+        }
+        if (!ValidationUtil.isValidPassword(password)) {
+            req.setAttribute("passwordError", "Password must meet criteria.");
+            hasError = true;
+        }
+        if (!ValidationUtil.isValidString(fullName)) {
+            req.setAttribute("fullNameError", "Full name is required.");
+            hasError = true;
+        }
+        if (!ValidationUtil.isValidPhone(phone)) {
+            req.setAttribute("phoneError", "Invalid phone number.");
+            hasError = true;
+        }
+        if (!ValidationUtil.isValidEmail(email)) {
+            req.setAttribute("emailError", "Invalid email address.");
+            hasError = true;
+        }
+        if (!(role != null && (role.equalsIgnoreCase("EMPLOYEE") || role.equalsIgnoreCase("ADMIN")))) {
+            req.setAttribute("roleError", "Role must be EMPLOYEE or ADMIN.");
+            hasError = true;
+        }
 
-            req.setAttribute("error", "Invalid input data. Please check your entries.");
+
+        req.setAttribute("oldUsername", username);
+        req.setAttribute("oldFullName", fullName);
+        req.setAttribute("oldPhone", phone);
+        req.setAttribute("oldEmail", email);
+        req.setAttribute("oldRole", role);
+
+        if (hasError) {
+            System.out.println("Validation failed ... forwarding back to form");
             req.getRequestDispatcher("/view/register.jsp").forward(req, resp);
             return;
         }
+
 
         UserDTO user = new UserDTO(
                 IdGenerator.generateUserId(),

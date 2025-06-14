@@ -34,7 +34,6 @@ public class AuthenticationFilter implements Filter {
         String requestURI = httpRequest.getRequestURI();
         String contextPath = httpRequest.getContextPath();
 
-        // Check role-based access
         if (requestURI.startsWith(contextPath + "/admin/") && !user.isAdmin()) {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/index");
             return;

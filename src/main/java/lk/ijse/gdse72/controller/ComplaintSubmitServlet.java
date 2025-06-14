@@ -10,6 +10,9 @@ import lk.ijse.gdse72.util.IdGenerator;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @WebServlet("/employee/submit-complaint")
 public class ComplaintSubmitServlet extends HttpServlet {
@@ -31,6 +34,33 @@ public class ComplaintSubmitServlet extends HttpServlet {
         String description = req.getParameter("description");
         String department = req.getParameter("department");
         String priority = req.getParameter("priority");
+
+        Map<String, String> errors = new HashMap<>();
+        if(title == null || title.isEmpty()){
+            errors.put("titleError", "Title is required.");
+        }
+        if(description == null || description.isEmpty()){
+            errors.put("descriptionError", "Description is required.");
+        }
+        if(department == null || department.isEmpty()){
+            errors.put("departmentError" , "Department is required.");
+        }
+
+        if(!errors.isEmpty()){
+
+            for(Map.Entry<String, String> entry : errors.entrySet()){
+                req.setAttribute(entry.getKey(), entry.getValue());
+            }
+
+            req.setAttribute("oldTitle", title);
+            req.setAttribute("oldDescription", description);
+            req.setAttribute("oldDepartment", department);
+            req.setAttribute("oldPriority", priority);
+
+            req.getRequestDispatcher("/view/complaint-form.jsp").forward(req, resp);
+            return;
+        }
+
 
         HttpSession session = req.getSession();
         String submittedBy = ((lk.ijse.gdse72.model.podos.UserDTO)session.getAttribute("user")).getUserId();

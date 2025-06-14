@@ -5,6 +5,20 @@
 <head>
     <title>Submit Complaint</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .error {
+            color: #ff4d4d;
+            font-size: 0.9rem;
+            margin-top: -1rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        input.invalid, textarea.invalid, select.invalid {
+            border: 2px solid #ff4d4d;
+            background: #ffe5e5;
+            transition: 0.3s ease;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -16,23 +30,30 @@
     <h1>Submit Complaint</h1>
     <form action="${pageContext.request.contextPath}/employee/submit-complaint" method="post">
         <label for="title">Title:</label>
-        <input type="text" name="title" id="title" required>
+        <input type="text" name="title" id="title" class="${not empty titleError ? 'invalid' : ''}">
+        <span class="error" id="titleError">${titleError != null ? titleError : ''}</span>
 
         <label for="description">Description:</label>
-        <textarea name="description" rows="4" id="description" required></textarea>
+        <textarea name="description" rows="4" id="description"  class="${not empty descriptionError ? 'invalid' : ''}"></textarea>
+        <span class="error" id="descriptionError">${descriptionError != null ? descriptionError : ''}</span>
 
         <label for="department">Department:</label>
-        <input type="text" name="department" id="department" required>
+        <input type="text" name="department" id="department" class="${not empty departmentError ? 'invalid' : ''}">
+        <span class="error" id="departmentError">${departmentError != null ? departmentError : ''}</span>
 
         <label for="priority">Priority:</label>
-        <select name="priority" id="priority">
+        <select name="priority" id="priority" class="${not empty priorityError ? 'invalid' : ''}">
             <option value="LOW">Low</option>
             <option value="MEDIUM">Medium</option>
             <option value="HIGH">High</option>
         </select>
+        <span class="error" id="priorityError">${priorityError != null ? priorityError : ''}</span>
 
         <input type="submit" value="Submit">
     </form>
-</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/complaintFormValidation.js"></script>
+   </div>
 </body>
 </html>

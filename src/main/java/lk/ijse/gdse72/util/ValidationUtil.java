@@ -54,13 +54,13 @@ public class ValidationUtil {
 
     // Generic check for null or empty
     public static boolean isValidString(String str) {
-        return str != null && !str.trim().isEmpty();
+        return str != null && !str.isEmpty();
     }
 
     // Generic length check
     public static boolean isValidLength(String str, int minLength, int maxLength) {
         if (str == null) return false;
-        int length = str.trim().length();
+        int length = str.length();
         return length >= minLength && length <= maxLength;
     }
 }
