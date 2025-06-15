@@ -108,5 +108,38 @@ public class UserDAO {
         }
         return user;
     }
+
+    public boolean promoteToAdmin(String userId) {
+        String sql = "UPDATE users SET role = 'ADMIN' WHERE user_id = ?";
+
+        try (Connection conn = DatabaseConfig.getDataSource().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, userId);
+            return stmt.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public List<UserDTO> getAllEmployees() {
+        String sql = "SELECT * FROM users WHERE role = 'EMPLOYEE'";
+        List<UserDTO> employees = new ArrayList<>();
+
+        try (Connection conn = DatabaseConfig.getDataSource().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                employees.add(extractUser(rs));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return employees;
+    }
 }
 

@@ -37,7 +37,6 @@ public class ComplaintEditServlet extends HttpServlet {
             return;
         }
 
-        // Verify user owns the complaint or is admin (optional)
         if (!complaint.getSubmittedBy().equals(user.getUserId()) && !user.isAdmin()) {
             resp.sendRedirect(req.getContextPath() + "/view/my-complaints.jsp?error=unauthorized");
             return;
@@ -81,7 +80,6 @@ public class ComplaintEditServlet extends HttpServlet {
             return;
         }
 
-        // Verify user owns the complaint or is admin (optional)
         if (!complaint.getSubmittedBy().equals(user.getUserId()) && !user.isAdmin()) {
             resp.sendRedirect(req.getContextPath() + "/view/my-complaints.jsp?error=unauthorized");
             return;

@@ -2,17 +2,17 @@ body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #d0e8ff, #e0d7ff); /* light blue-purple gradient */
+    background: linear-gradient(135deg, #d0e8ff, #e0d7ff);
     background-attachment: fixed;
     min-height: 100vh;
     padding: 2rem 0;
-    color: #1b1b2f; /* dark navy blue */
+    color: #1b1b2f;
 }
 
 .container {
     background: rgba(255, 255, 255, 0.15);
     border-radius: 16px;
-    box-shadow: 0 8px 32px 0 rgba(75, 0, 224, 0.25); /* purple shadow */
+    box-shadow: 0 8px 32px 0 rgba(75, 0, 224, 0.25);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -22,7 +22,7 @@ body {
 }
 
 h1 {
-    color: #4a00e0; /* vibrant purple */
+    color: #4a00e0;
     text-align: center;
     margin-bottom: 2rem;
     font-size: 2.5rem;
@@ -30,7 +30,7 @@ h1 {
 }
 
 .admin-badge {
-    background: linear-gradient(45deg, #4a00e0, #8e2de2); /* purple gradient */
+    background: linear-gradient(45deg, #4a00e0, #8e2de2);
     color: #ffffff;
     padding: 0.5rem 1rem;
     border-radius: 20px;
@@ -83,13 +83,12 @@ tr:hover {
     max-width: 200px;
     word-wrap: break-word;
     font-weight: bold;
-    color: #2c2c54; /* darker purple-blue */
+    color: #2c2c54;
 }
 
-/* Status Highlights */
 .status-pending {
-    background-color: #d1c4e9;   /* light purple */
-    color: #4a148c;              /* dark purple */
+    background-color: #d1c4e9;
+    color: #4a148c;
     font-weight: 600;
     padding: 4px 10px;
     border-radius: 12px;
@@ -98,8 +97,8 @@ tr:hover {
 }
 
 .status-in_progress {
-    background-color: #bbdefb;   /* light blue */
-    color: #0d47a1;              /* dark blue */
+    background-color: #bbdefb;
+    color: #0d47a1;
     font-weight: 600;
     padding: 4px 10px;
     border-radius: 12px;
@@ -108,8 +107,8 @@ tr:hover {
 }
 
 .status-resolved {
-    background-color: #c8e6c9;   /* light green (soft white variant) */
-    color: #2e7d32;              /* dark green */
+    background-color: #c8e6c9;
+    color: #2e7d32;
     font-weight: 600;
     padding: 4px 10px;
     border-radius: 12px;
@@ -118,8 +117,8 @@ tr:hover {
 }
 
 .status-rejected {
-    background-color: #ffcdd2;   /* light red (for rejected) */
-    color: #b71c1c;              /* dark red */
+    background-color: #ffcdd2;
+    color: #b71c1c;
     font-weight: 600;
     padding: 4px 10px;
     border-radius: 12px;
@@ -127,10 +126,9 @@ tr:hover {
     text-transform: capitalize;
 }
 
-/* Priority Highlights */
 .priority-low {
-    background-color: #e3f2fd;   /* very light blue */
-    color: #1565c0;              /* medium blue */
+    background-color: #e3f2fd;
+    color: #1565c0;
     font-weight: 600;
     padding: 4px 10px;
     border-radius: 12px;

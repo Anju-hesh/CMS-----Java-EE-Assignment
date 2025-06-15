@@ -61,8 +61,14 @@
                     Reports
                 </a>
             </li>
+<%--            <li class="nav-item">--%>
+<%--                <a href="${pageContext.request.contextPath}/view/users.jsp" class="nav-link">--%>
+<%--                    <span class="nav-icon">👥</span>--%>
+<%--                    Users--%>
+<%--                </a>--%>
+<%--            </li>--%>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="${pageContext.request.contextPath}/users" class="nav-link">
                     <span class="nav-icon">👥</span>
                     Users
                 </a>

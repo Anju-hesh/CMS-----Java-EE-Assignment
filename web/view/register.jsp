@@ -33,7 +33,7 @@
         <label for="role">Role:</label>
         <select name="role" id="role">
             <option value="EMPLOYEE">Employee</option>
-            <option value="ADMIN">Admin</option>
+<%--            <option value="ADMIN">Admin</option>--%>
         </select>
         <span class="error">${roleError}</span>
 
