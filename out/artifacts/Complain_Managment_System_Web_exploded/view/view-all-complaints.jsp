@@ -9,23 +9,13 @@
 <head>
     <title>All Complaints - Admin Panel</title>
     <link rel="stylesheet" href="../css/viewAll.css">
-
 </head>
 <body>
 <div class="container">
-
-<%--    <%--%>
-<%--        UserDTO currentUser = (UserDTO) session.getAttribute("user");--%>
-<%--        if (currentUser == null) {--%>
-<%--            response.sendRedirect(request.getContextPath() + "/index.jsp");--%>
-<%--            return;--%>
-<%--        }--%>
-<%--    %>--%>
-
     <div style="text-align: center;">
         <span class="admin-badge">👑 ADMIN PANEL</span>
         <form action="<%= request.getContextPath() %>/view/admin-dashboard.jsp" style="position: absolute; right: 10px; top: 10px;">
-            <button type="submit" style="background-color: #f44336; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">
+            <button type="submit" style="background-color: #f44336; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer">
                 DashBoard
             </button>
         </form>
@@ -35,7 +25,6 @@
 
     <%
         String error = (String) request.getAttribute("error");
-        System.out.println("view all complaints jsp file: " + error);
 
         if (error != null) {
     %>
@@ -45,10 +34,8 @@
     %>
 
     <%
-        System.out.println("before get complaints: ");
         ComplaintDAO complaintDAO = new ComplaintDAO();
         List<ComplaintDTO> complaints = complaintDAO.getAllComplaints();
-        System.out.println("complaints tika: " + complaints);
 
         int totalComplaints = 0;
         int pendingCount = 0;
@@ -94,89 +81,85 @@
     </div>
 
     <div class="table-wrapper">
-    <table>
-        <thead>
-        <tr>
-            <th style="display: none">ID</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Department</th>
-            <th>Status</th>
-            <th>Submitted By</th>
-            <th>Priority</th>
-            <th>Created At</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <%
-            if (complaints != null && !complaints.isEmpty()) {
-                for (ComplaintDTO complaint : complaints) {
-                    String statusClass = complaint.getStatus() != null ? complaint.getStatus().toLowerCase() : "";
-                    String priorityClass = complaint.getPriority() != null ? complaint.getPriority().toLowerCase() : "";
-        %>
-        <tr>
-            <td style="display: none"><%= complaint.getComplaintId() %></td>
-            <td class="title-cell"><strong><%= complaint.getTitle() %></strong></td>
-            <td><%= complaint.getDescription() %></td>
-            <td><%= complaint.getDepartment() %></td>
-            <td>
+        <table>
+            <thead>
+            <tr>
+                <th style="display: none">ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Department</th>
+                <th>Status</th>
+                <th>Submitted By</th>
+                <th>Priority</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%
+                if (complaints != null && !complaints.isEmpty()) {
+                    for (ComplaintDTO complaint : complaints) {
+                        String statusClass = complaint.getStatus() != null ? complaint.getStatus().toLowerCase() : "";
+                        String priorityClass = complaint.getPriority() != null ? complaint.getPriority().toLowerCase() : "";
+            %>
+            <tr>
+                <td style="display: none"><%= complaint.getComplaintId() %></td>
+                <td class="title-cell"><strong><%= complaint.getTitle() %></strong></td>
+                <td><%= complaint.getDescription() %></td>
+                <td><%= complaint.getDepartment() %></td>
+                <td>
                     <span class="status-<%= statusClass %>">
                         <%= complaint.getStatus() != null ? complaint.getStatus().replace("_", " ") : "Unknown" %>
                     </span>
-            </td>
-            <td><%= complaint.getSubmittedByName() != null ? complaint.getSubmittedByName() : complaint.getSubmittedBy() %></td>
-            <td>
+                </td>
+                <td><%= complaint.getSubmittedByName() != null ? complaint.getSubmittedByName() : complaint.getSubmittedBy() %></td>
+                <td>
                     <span class="priority-<%= priorityClass %>">
                         <%= complaint.getPriority() != null ? complaint.getPriority() : "N/A" %>
                     </span>
-            </td>
-            <td><%= complaint.getCreatedAt() %></td>
-            <td class="actions-cell">
-                <div class="action-form">
-                    <form action="<%= request.getContextPath() %>/admin/update-complaint-status" method="post" style="display:inline-block;">
-                        <input type="hidden" name="complaintId" value="<%= complaint.getComplaintId() %>" />
-                        <select name="status" required>
-                            <option value="PENDING" <%= "PENDING".equals(complaint.getStatus()) ? "selected" : "" %>>Pending</option>
-                            <option value="IN_PROGRESS" <%= "IN_PROGRESS".equals(complaint.getStatus()) ? "selected" : "" %>>In Progress</option>
-                            <option value="RESOLVED" <%= "RESOLVED".equals(complaint.getStatus()) ? "selected" : "" %>>Resolved</option>
-                            <option value="REJECTED" <%= "REJECTED".equals(complaint.getStatus()) ? "selected" : "" %>>Rejected</option>
-                        </select>
-                        <input type="text" name="adminRemarks" placeholder="Admin remarks..." value="<%= complaint.getAdminRemarks() != null ? complaint.getAdminRemarks() : "" %>">
-                        <input type="submit" value="Update">
+                </td>
+                <td><%= complaint.getCreatedAt() %></td>
+                <td class="actions-cell">
+                    <div class="action-form">
+                        <form action="<%= request.getContextPath() %>/admin/update-complaint-status" method="post" style="display:inline-block;">
+                            <input type="hidden" name="complaintId" value="<%= complaint.getComplaintId() %>" />
+                            <select name="status" required <%= "RESOLVED".equals(complaint.getStatus()) ? "disabled" : "" %>>
+                                <option value="PENDING" <%= "PENDING".equals(complaint.getStatus()) ? "selected" : "" %>>Pending</option>
+                                <option value="IN_PROGRESS" <%= "IN_PROGRESS".equals(complaint.getStatus()) ? "selected" : "" %>>In Progress</option>
+                                <option value="RESOLVED" <%= "RESOLVED".equals(complaint.getStatus()) ? "selected" : "" %>>Resolved</option>
+                                <option value="REJECTED" <%= "REJECTED".equals(complaint.getStatus()) ? "selected" : "" %>>Rejected</option>
+                            </select>
+                            <input type="text" name="adminRemarks" placeholder="Admin remarks..." value="<%= complaint.getAdminRemarks() != null ? complaint.getAdminRemarks() : "" %>" <%= "RESOLVED".equals(complaint.getStatus()) ? "disabled" : "" %>>
+                            <input type="submit" value="Update" <%= "RESOLVED".equals(complaint.getStatus()) ? "disabled" : "" %>>
+                        </form>
+                    </div>
+                    <form action="<%= request.getContextPath() %>/complaint/delete" method="post" onsubmit="return confirm('Are you sure you want to delete this complaint?');">
+                        <input type="hidden" name="id" value="<%= complaint.getComplaintId() %>">
+                        <button type="submit" class="delete-link">
+                            🗑 Delete
+                        </button>
                     </form>
-                </div>
-                <form action="<%= request.getContextPath() %>/complaint/delete" method="post" onsubmit="return confirm('Are you sure you want to delete this complaint?');">
-                    <input type="hidden" name="id" value="<%= complaint.getComplaintId() %>">
-                    <button type="submit" class="delete-link">
-                        🗑 Delete
-                    </button>
-                </form>
-
-            <%--                <a href="<%= request.getContextPath() %>../admin/view-complaint-details?id=<%= complaint.getComplaintId() %>" class="view-link" style="margin-left: 10px; color: #2196F3;">--%>
-<%--                    👁 View--%>
-<%--                </a>--%>
-            </td>
-        </tr>
-        <%
-            }
-        } else {
-        %>
-        <tr>
-            <td colspan="9" class="no-complaints">
-                <h3>No complaints found</h3>
-                <p>There are currently no complaints in the system.</p>
-            </td>
-        </tr>
-        <%
-            }
-        %>
-        </tbody>
-    </table>
+                </td>
+            </tr>
+            <%
+                }
+            } else {
+            %>
+            <tr>
+                <td colspan="9" class="no-complaints">
+                    <h3>No complaints found</h3>
+                    <p>There are currently no complaints in the system.</p>
+                </td>
+            </tr>
+            <%
+                }
+            %>
+            </tbody>
+        </table>
     </div>
 
-    <div style="margin-top: 20px; text-align: center;">
-        <a href="${pageContext.request.contextPath}/view/admin-dashboard.jsp" style="padding: 8px 16px; background-color: #4a00e0; color: #fff; text-decoration: none; border-radius: 4px;">
+    <div style="margin-top: 20px; text-align: center">
+        <a href="${pageContext.request.contextPath}/view/admin-dashboard.jsp" style="padding: 8px 16px; background-color: #4a00e0; color: #fff; text-decoration: none; border-radius: 4px">
             Back to Dashboard
         </a>
     </div>

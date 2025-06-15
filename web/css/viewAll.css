@@ -41,14 +41,28 @@ h1 {
     box-shadow: 0 2px 8px rgba(138, 43, 226, 0.6);
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+.table-wrapper {
+    max-height: 500px;
+    overflow: auto;
+    display: block;
+    white-space: nowrap;
     margin-bottom: 40px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    overflow: hidden;
     box-shadow: 0 4px 24px rgba(74, 0, 224, 0.15);
+}
+
+.table-wrapper table {
+    width: max-content;
+    border-collapse: collapse;
+}
+
+.table-wrapper thead {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(74, 0, 224, 0.7);
 }
 
 th, td {
@@ -67,6 +81,7 @@ th {
     font-size: 0.9rem;
     position: sticky;
     top: 0;
+    z-index: 1;
     box-shadow: 0 2px 8px rgba(74, 0, 224, 0.7);
 }
 
@@ -148,7 +163,7 @@ tr:hover {
 
 .priority-high {
     background-color: #b71c1c;
-    color: white;
+    color: #ffffff;
     font-weight: 700;
     padding: 4px 10px;
     border-radius: 12px;
@@ -257,51 +272,6 @@ tr:hover {
     font-size: 14px;
     color: #4a00e0;
     font-weight: 600;
-}
-
-.table-wrapper {
-    max-height: 500px;
-    overflow-y: auto;
-    display: block;
-}
-
-.table-wrapper table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.table-wrapper thead,
-.table-wrapper tbody,
-.table-wrapper tr,
-.table-wrapper td,
-.table-wrapper th {
-    display: block;
-}
-
-.table-wrapper thead {
-    position: sticky;
-    top: 0;
-    background: #fff;
-    z-index: 1;
-}
-
-.table-wrapper tbody {
-    max-height: 500px;
-    overflow-y: scroll;
-    display: block;
-}
-
-.table-wrapper tr {
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-}
-
-.table-wrapper th,
-.table-wrapper td {
-    display: table-cell;
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
 }
 
 @media (max-width: 768px) {

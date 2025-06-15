@@ -23,7 +23,7 @@ body {
 }
 
 h1, h2, h3 {
-    color: #5a4d9d; /* deep purple */
+    color: #5a4d9d;
     text-align: center;
     margin-bottom: 1.5rem;
 }
@@ -135,7 +135,7 @@ tr:hover {
 
 .status-pending {
     background: rgba(255, 193, 7, 0.15);
-    color: #8d6e63; /* warm brown */
+    color: #8d6e63;
     padding: 0.25rem 0.75rem;
     border-radius: 16px;
     font-size: 0.85rem;

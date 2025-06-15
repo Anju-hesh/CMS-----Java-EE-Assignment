@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+h1 {
+    position: absolute;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    z-index: 1500;
+}
+
+.container {
+    position: absolute;
+    top: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.table {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 20px 30px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    flex: 1 1 400px;
+    min-width: 320px;
+}
+
+.table h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: #eef2ff;
+    text-shadow: 0 0 8px rgba(118, 75, 162, 0.7);
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px 15px;
+    color: #eef2ff;
+}
+
+th {
+    font-weight: 600;
+    font-size: 1rem;
+    background: rgba(102, 126, 234, 0.4);
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+tr {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 2px 12px rgba(118, 75, 162, 0.15);
+    transition: background 0.3s ease;
+}
+
+tr:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+input[type="submit"] {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 12px;
+    padding: 8px 18px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(118, 75, 162, 0.6);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(135deg, #764ba2, #667eea);
+    box-shadow: 0 6px 18px rgba(102, 126, 234, 0.8);
+}
+
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .table {
+        width: 90%;
+        min-width: unset;
+    }
+}
