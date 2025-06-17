@@ -14,11 +14,25 @@
     <title>Admin Dashboard - Complaint Management</title>
     <link rel="stylesheet" href="../css/addminDashboard.css">
 
-    <style>
-
-    </style>
 </head>
 <body>
+
+<%
+    String login = request.getParameter("login");
+    if ("success".equals(login)) {
+%>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    Swal.fire({
+        icon:'success',
+        title:'Login Successful',
+        text:'Welcome back!'
+    });
+</script>
+<%
+    }
+%>
+
 <div class="dashboard-container" id="dashboard">
     <%
         UserDTO user = (UserDTO) session.getAttribute("user");

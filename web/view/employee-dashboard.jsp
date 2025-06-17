@@ -13,6 +13,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 <body>
+
+<%
+    String login = request.getParameter("login");
+    if ("success".equals(login)) {
+%>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    Swal.fire({
+        icon:'success',
+        title:'Login Successful',
+        text:'Welcome back!'
+    });
+</script>
+<%
+    }
+%>
+
 <%
     UserDTO user = (UserDTO) session.getAttribute("user");
     ComplaintDAO complaintDAO = new ComplaintDAO();

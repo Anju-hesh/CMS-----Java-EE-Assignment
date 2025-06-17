@@ -30,10 +30,10 @@ public class LoginServlet extends HttpServlet {
             if (user.isAdmin()) {
                 System.out.println("isAdmin");
 //                resp.sendRedirect(req.getContextPath() + "../../../web/view/admin-dashboard.jsp");
-                resp.sendRedirect(req.getContextPath() + "/view/admin-dashboard.jsp");
+                resp.sendRedirect(req.getContextPath() + "/view/admin-dashboard.jsp?login=success");
             } else if (user.isEmployee()) {
                 System.out.println("IsEmployee");
-                resp.sendRedirect(req.getContextPath() + "/view/employee-dashboard.jsp");
+                resp.sendRedirect(req.getContextPath() + "/view/employee-dashboard.jsp?login=success");
             } else {
                 System.out.println("Some Wrong");
                 resp.sendRedirect(req.getContextPath() + "/index.jsp?error=role");

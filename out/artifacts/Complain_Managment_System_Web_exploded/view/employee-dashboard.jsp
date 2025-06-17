@@ -13,6 +13,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 <body>
+
+<%
+    String login = request.getParameter("login");
+    if ("success".equals(login)) {
+%>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    Swal.fire({
+        icon:'success',
+        title:'Login Successful',
+        text:'Welcome back!'
+    });
+</script>
+<%
+    }
+%>
+
 <%
     UserDTO user = (UserDTO) session.getAttribute("user");
     ComplaintDAO complaintDAO = new ComplaintDAO();
@@ -127,19 +144,19 @@
                 </h3>
                 <div class="visual-stats">
                     <div class="visual-stat pending">
-                        <div class="visual-bar" style="height: <%= pendingCount * 10 %>px"></div>
+                        <div class="visual-bar" style="height: <%= pendingCount * 75 %>px"></div>
                         <span class="visual-label">Pending</span>
                     </div>
                     <div class="visual-stat in-progress">
-                        <div class="visual-bar" style="height: <%= inProgressCount * 10 %>px"></div>
+                        <div class="visual-bar" style="height: <%= inProgressCount * 75 %>px"></div>
                         <span class="visual-label">In Progress</span>
                     </div>
                     <div class="visual-stat resolved">
-                        <div class="visual-bar" style="height: <%= resolvedCount * 10 %>px"></div>
+                        <div class="visual-bar" style="height: <%= resolvedCount * 75 %>px"></div>
                         <span class="visual-label">Resolved</span>
                     </div>
                     <div class="visual-stat rejected">
-                        <div class="visual-bar" style="height: <%= rejectedCount * 10 %>px"></div>
+                        <div class="visual-bar" style="height: <%= rejectedCount * 75 %>px"></div>
                         <span class="visual-label">Rejected</span>
                     </div>
                 </div>

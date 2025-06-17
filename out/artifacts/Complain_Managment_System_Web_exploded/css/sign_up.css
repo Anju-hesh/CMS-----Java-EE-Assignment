@@ -16,8 +16,8 @@ body {
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 8px 32px 0 rgb(0, 0, 0, 0.2);
-    width: 75%;
-    max-width: 900px;
+    width: 20%;
+    /*max-width: 900px;*/
     text-align: center;
     color: #ffffff;
     position: relative;
@@ -34,13 +34,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 15px;
+    gap: 5px;
     width: 100%;
 }
 
 .container form label {
     font-size: 1.1rem;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
     color: #ffffff;
 }
 
@@ -81,7 +81,7 @@ body {
 }
 
 .container form input[type="submit"] {
-    margin-top: 20px;
+    margin-top: 10px;
     background: #9b59b6;
     color: #ffffff;
     font-weight: bold;

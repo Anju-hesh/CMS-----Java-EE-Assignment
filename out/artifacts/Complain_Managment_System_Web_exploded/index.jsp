@@ -22,6 +22,19 @@
     </script>
     <% } %>
 
+    <%
+        String login = request.getParameter("login");
+        if ("success".equals(login)) {
+    %>
+    <script>
+        Swal.fire({
+            icon:'success',
+            title:'Login Successful',
+            text:'Welcome back!'
+        });
+    </script>
+    <% } %>
+
     <form action="login" method="post" id="loginForm">
         <label for="username">Username:</label>
         <input type="text" name="username" id="username" required>
